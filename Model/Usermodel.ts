@@ -1,7 +1,7 @@
 import mongoose, { model } from "mongoose";
 
 interface Iuser {
-  UserName: string;
+  userName: string;
   email: string;
   password: string;
   token: string;
