@@ -11,7 +11,7 @@ mainApp(app);
 DbcONNECT();
 
 const server = app.listen(Port, () => {
-  console.log("Server is up and running");
+  console.log("Server is up and running:", Port);
 });
 
 process.on("uncaughtException", (error: Error) => {

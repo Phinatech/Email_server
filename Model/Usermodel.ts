@@ -7,7 +7,7 @@ interface Iuser {
   token: string;
   verified: boolean;
 }
-interface IuserData extends Iuser, Document {}
+interface IuserData extends Iuser, mongoose.Document {}
 
 const userSchema = new mongoose.Schema(
   {
