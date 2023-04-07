@@ -1,7 +1,7 @@
 import express, { Application } from "express";
 import { mainApp } from "./mainApp";
 import mongoose from "mongoose";
-import { DbcONNECT } from "./Db";
+import { DbcONNECT } from "./Config/Db";
 
 const app: Application = express();
 

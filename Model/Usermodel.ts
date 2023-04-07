@@ -31,3 +31,4 @@ const userSchema = new mongoose.Schema(
 );
 
 export const userModel = mongoose.model<IuserData>("users", userSchema);
+// export default mongoose.model<IuserData>("user", userSchema)
