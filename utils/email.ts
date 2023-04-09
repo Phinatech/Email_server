@@ -1,10 +1,13 @@
 import { google } from "googleapis";
 import nodemailer from "nodemailer";
 
-const GOOGLE_ID: string = "";
-const GOOGLE_SECERT: string = "";
-const GOOGLE_REFRESHTOKEN: string = "";
-const GOOGLE_REDIRECT: string = "";
+const GOOGLE_ID: string =
+  "234489374108-p8r2abe3rmb485fp0fjavj478dqe8is7.apps.googleusercontent.com";
+const GOOGLE_SECERT: string = "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";
+const GOOGLE_REFRESHTOKEN: string =
+  "1//04sr06SWpAEH6CgYIARAAGAQSNwF-L9Iret73r_QTEryFE0cT6uUdtLkd-mhbnbVAlOZXSdDIfMTBVh9Ao32DbPHdHzD4FdHBa-w";
+const GOOGLE_REDIRECT: string =
+  "https://developers.google.com/oauthplayground/";
 
 //Oauth its means  open authentication
 
@@ -19,6 +22,7 @@ export const verifyAccount = async () => {
       service: "gmail",
       auth: {
         type: "OAuth2",
+        user: "ugbojudithchinemerem@gmail.com",
         clientId: GOOGLE_ID,
         ckientSeccret: GOOGLE_SECERT,
         refreshToken: GOOGLE_REFRESHTOKEN,
@@ -27,7 +31,7 @@ export const verifyAccount = async () => {
     });
 
     const maileroption = {
-      from: " Tech Pral ❤❤❤❤❤<Our Email>",
+      from: " Tech Pral ❤❤❤❤❤<ugbojudithchinemerem@gmail.com>",
       to: "sendEmail",
       subject: "Account verification ",
       html: `<div>Welcome</div>`,

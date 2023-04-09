@@ -1,6 +1,6 @@
 import express, { Request, Response } from "express";
-
 import { userModel } from "../Model/Usermodel";
+import { verifyAccount } from "../utils/email";
 
 //creating a new user
 export const createUser = async (req: Request, res: Response) => {
@@ -11,6 +11,14 @@ export const createUser = async (req: Request, res: Response) => {
       email,
       password,
     });
+    verifyAccount()
+      .then(() => {
+        console.log("mail sent");
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+
     return res.status(200).json({
       message: "Sucessfully created ",
       data: creating,
