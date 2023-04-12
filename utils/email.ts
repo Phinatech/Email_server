@@ -16,7 +16,7 @@ const oAuth = new google.auth.OAuth2(GOOGLE_ID, GOOGLE_SECERT, GOOGLE_REDIRECT);
 export const verifyAccount = async () => {
   try {
     oAuth.setCredentials({ access_token: GOOGLE_REFRESHTOKEN });
-    const getToken: any = oAuth.getAccessToken();
+    const getToken: any = (await oAuth.getAccessToken()).token;
 
     const transporter = nodemailer.createTransport({
       service: "gmail",
@@ -24,9 +24,9 @@ export const verifyAccount = async () => {
         type: "OAuth2",
         user: "ugbojudithchinemerem@gmail.com",
         clientId: GOOGLE_ID,
-        ckientSeccret: GOOGLE_SECERT,
+        clientSecret: GOOGLE_SECERT,
         refreshToken: GOOGLE_REFRESHTOKEN,
-        accessToken: getToken?.token!,
+        accessToken: getToken,
       },
     });
 
