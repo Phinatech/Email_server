@@ -9,7 +9,7 @@ import {
 
 const router = Router();
 
-router.route("/user").get(getUser);
+router.route("/Alluser").get(getUser);
 router.route("/:id").get(singleUser);
 router.route("/:id").patch(updateUser);
 router.route("/:id").delete(deleteUser);

@@ -1,15 +1,23 @@
 import express, { Request, Response } from "express";
 import { userModel } from "../Model/Usermodel";
 import { verifyAccount } from "../utils/email";
+import crypto from "crypto";
 
 //creating a new user
 export const createUser = async (req: Request, res: Response) => {
   try {
     const { userName, email, password } = req.body;
+
+    const token = crypto.randomBytes(32).toString("hex");
+
+    const OTP = crypto.randomBytes(2).toString("hex");
+
     const user = await userModel.create({
       userName,
       email,
       password,
+      OTP,
+      token,
     });
     verifyAccount(user)
       .then(() => {
@@ -103,6 +111,20 @@ export const deleteUser = async (req: Request, res: Response) => {
   }
 };
 //verify user
+export const getUser = async (req: Request, res: Response) => {
+  try {
+    const creating = await userModel.find();
+
+    return res.status(200).json({
+      message: `All user Sucessfully gotten ${creating.length}`,
+      data: creating,
+    });
+  } catch (error) {
+    res.status(404).json({
+      message: "an error occured",
+    });
+  }
+};
 
 //request reset password
 

@@ -5,6 +5,7 @@ interface Iuser {
   email: string;
   password: string;
   token: string;
+  OTP: string;
   verified: boolean;
 }
 interface IuserData extends Iuser, mongoose.Document {}
@@ -21,6 +22,9 @@ const userSchema = new mongoose.Schema(
       type: String,
     },
     token: {
+      type: String,
+    },
+    OTP: {
       type: String,
     },
     verified: {
