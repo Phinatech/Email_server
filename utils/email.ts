@@ -13,7 +13,7 @@ const GOOGLE_REDIRECT: string =
 
 const oAuth = new google.auth.OAuth2(GOOGLE_ID, GOOGLE_SECERT, GOOGLE_REDIRECT);
 
-export const verifyAccount = async () => {
+export const verifyAccount = async (user: any) => {
   try {
     oAuth.setCredentials({ access_token: GOOGLE_REFRESHTOKEN });
     const getToken: any = (await oAuth.getAccessToken()).token;
@@ -31,10 +31,12 @@ export const verifyAccount = async () => {
     });
 
     const maileroption = {
-      from: " Tech Pral ❤❤❤❤❤<ugbojudithchinemerem@gmail.com>",
-      to: "sendEmail",
+      from: " Tech Pearl ❤❤❤❤❤<ugbojudithchinemerem@gmail.com>",
+      to: user.email,
       subject: "Account verification ",
-      html: `<div>Welcome</div>`,
+      html: `<div>Welcome ${user.userName}
+      <a href = "http://localhost:9999/api/verified">verified</a>
+      </div>`,
     };
     transporter
       .sendMail(maileroption)

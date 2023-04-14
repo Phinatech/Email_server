@@ -1,11 +1,16 @@
-import express, { Application } from "express";
+import express, { Application, Request, Response } from "express";
 import { mainApp } from "./mainApp";
-import mongoose from "mongoose";
 import { DbcONNECT } from "./Config/Db";
 
 const app: Application = express();
 
-const Port = 9999;
+const Port = 8999;
+
+app.get("/", (req: Request, res: Response) => {
+  return res.status(200).json({
+    message: "Server is listening",
+  });
+});
 
 mainApp(app);
 DbcONNECT();

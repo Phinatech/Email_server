@@ -6,14 +6,14 @@ import { verifyAccount } from "../utils/email";
 export const createUser = async (req: Request, res: Response) => {
   try {
     const { userName, email, password } = req.body;
-    const creating = await userModel.create({
+    const user = await userModel.create({
       userName,
       email,
       password,
     });
-    verifyAccount()
+    verifyAccount(user)
       .then(() => {
-        console.log("mail sent");
+        console.log("Email has been sent to the user");
       })
       .catch((error) => {
         console.log(error);
@@ -21,7 +21,7 @@ export const createUser = async (req: Request, res: Response) => {
 
     return res.status(200).json({
       message: "Sucessfully created ",
-      data: creating,
+      data: user,
     });
   } catch (error) {
     res.status(404).json({

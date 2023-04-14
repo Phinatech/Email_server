@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const url = "mongodb://127.0.0.1:27017/emailserver";
+const url = "mongodb://127.0.0.1:27017/Emailstarting";
 
 export const DbcONNECT = async () => {
   const connc = await mongoose
