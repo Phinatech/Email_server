@@ -111,9 +111,14 @@ export const deleteUser = async (req: Request, res: Response) => {
   }
 };
 //verify user
-export const getUser = async (req: Request, res: Response) => {
+export const verifyUser = async (req: Request, res: Response) => {
   try {
+    const { OTP } = req.body;
     const creating = await userModel.find();
+
+    if (creating === OTP) {
+      console.log("this is correct");
+    }
 
     return res.status(200).json({
       message: `All user Sucessfully gotten ${creating.length}`,
