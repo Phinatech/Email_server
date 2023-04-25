@@ -106,7 +106,7 @@ export const deleteUser = async (req: Request, res: Response) => {
     });
   } catch (error) {
     res.status(404).json({
-      message: "an error occured",
+      message: "AN ERROR OCCURED ",
     });
   }
 };
@@ -132,5 +132,10 @@ export const verifyUser = async (req: Request, res: Response) => {
 };
 
 //request reset password
+
+export const resetPassword = async (req: Request, res: Response) => {
+  try {
+  } catch (error) {}
+};
 
 //reset password
