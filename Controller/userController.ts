@@ -135,7 +135,11 @@ export const verifyUser = async (req: Request, res: Response) => {
 
 export const resetPassword = async (req: Request, res: Response) => {
   try {
-  } catch (error) {}
+  } catch (error) {
+    res.status(404).json({
+      message: "an error occured",
+    });
+  }
 };
 
 //reset password
